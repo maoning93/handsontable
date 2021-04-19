@@ -101,6 +101,7 @@ const jsfiddle = (id, html, code, version, preset) => {
   `;
   //todo babel + jsx
 };
+
 module.exports = {
   type: 'example',
   render(tokens, index, opts, env) {
@@ -151,6 +152,24 @@ module.exports = {
       }catch (error){
         console.error(`Babel error when building ${env.relativePath}`);
         throw error;
+      }finally {
+        if (version === 'next') {
+          require('fs').writeFileSync('__examples.txt',JSON.stringify(
+          {
+            permalink: `https://premiera:roku2016@dev.handsontable.com/docs${env.frontmatter.permalink}`,
+            header: tokens.reduce((p,c,i)=> {
+              if (i >= index) return p;
+              if (c.type.toLowerCase()==="heading_open") return tokens[i+1].content;
+              return p;
+            },'Without header'),
+            preset,
+            id,
+            contentHtml,
+            contentJs,
+            contentCss: getCss(version, preset),
+            transpiledJs: code
+          })+',\n', {flag:'as'});
+        }
       }
 
       // opening tag
