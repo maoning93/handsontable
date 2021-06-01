@@ -1,18 +1,18 @@
 {{#children inherited=undefined ~}}{{#if (isConstructor)}}
-{{>hot-docs~}}
+{{>hot-docs2~}}
 {{/if}}{{/children~}}
 
 ## Options
 {{#children inherited=undefined ~}}{{#unless (isConstructor)}}{{#unless (isFunction)}}{{#if isOption}}
-{{>hot-docs~}}
+{{>hot-docs2~}}
 {{/if}}{{/unless}}{{/unless}}{{/children~}}
 
 ## Members
 {{#children inherited=undefined ~}}{{#unless (isConstructor)}}{{#unless (isFunction)}}{{#unless isOption}}
-{{>hot-docs~}}
+{{>hot-docs2~}}
 {{/unless}}{{/unless}}{{/unless}}{{/children~}}
 
 ## Methods
 {{#children inherited=undefined ~}}{{#unless (isConstructor)}}{{#if (isFunction)}}
-{{>hot-docs~}}
+{{>hot-docs2~}}
 {{/if}}{{/unless}}{{/children~}}

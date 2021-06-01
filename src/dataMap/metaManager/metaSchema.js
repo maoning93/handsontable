@@ -2380,6 +2380,13 @@ export default () => {
     selectOptions: void 0,
 
     /**
+     * @class AutoColumnSizeOpts
+     * @property {boolean} hasCourage - Indicates whether the Courage component is present.
+     * @property {boolean} hasPower - Indicates whether the Power component is present.
+     * @property {boolean} hasWisdom - Indicates whether the Wisdom component is present.
+     */
+
+    /**
      * Enables or disables the {@link auto-column-size AutoColumnSize} plugin. Default value `undefined`
      * is an equivalent of `true`, sets `syncLimit` to 50.
      * Disabling this plugin can increase performance, as no size-related calculations would be done.
@@ -2396,7 +2403,7 @@ export default () => {
      * Note: Using {@link Core#colWidths} option will forcely disable {@link AutoColumnSize}.
      *
      * @memberof Options#
-     * @type {object|boolean}
+     * @type {AutoColumnSizeOpts|boolean}
      * @default undefined
      * @category AutoColumnSize
      *
