@@ -342,7 +342,7 @@ There are three potential places where we can put the function that will create 
 
 The key to choose the best solution is to understand when each of those methods is called.
 
-`init()` method is called during creation of editor class object. That happens at most one per table instance, because once the object is created it is reused every time `EditorManager` asks for this editor class instance (see [Singleton pattern](http://en.wikipedia.org/wiki/Singleton_pattern) for details).
+`init()` method is called during creation of editor class object. That happens at most one per table instance, because once the object is created it is reused every time `EditorManager` asks for this editor class instance.
 
 `prepare()` method is called every time the user selects a cell that has this particular editor class set as `editor` property. So, if we set `SelectEditor` as editor for an entire column, then selecting any cell in this column will invoke `prepare()` method of `SelectEditor`. In other words, this method can be called hundreds of times during table life, especially when working with large data. Another important aspect of `prepare()` is that it should not display the editor (it's `open's` job). Displaying editor is triggered by user event such as pressing ENTER, F2 or double clicking a cell, so there is some time between calling `prepare()` and actually displaying the editor. Nevertheless, operations performed by `prepare()` should be completed as fast as possible, to provide the best user experience.
 
