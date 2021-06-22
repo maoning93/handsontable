@@ -6,7 +6,6 @@
         </CodeSandboxIframe>
       </tab>
       <tab name="Vue" id="vue" :is-disabled="true"></tab>
-      <tab name="Angular" id="angular" :is-disabled="true"></tab>
     </tabs>
   </div>
 </template>
@@ -38,6 +37,12 @@ export default {
           tabId: 'react',
           codeSandboxId: 'handsontable-react-data-grid-hello-world-app-yt46w',
           title: 'Handsontable React Data Grid - Hello World App'
+        },
+        {
+          name: 'Angular',
+          tabId: 'angular',
+          codeSandboxId: 'handsontable-angular-data-grid-hello-world-app-50pb7',
+          title: 'Handsontable Angular Data Grid - Hello World App'
         }
       ]
     };
