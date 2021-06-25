@@ -49,6 +49,7 @@ function createRegister() {
               rootExampleElement,
               hotInstance: this,
             }));
+            console.log(window.location.href, examplePresetType, register);
           }
         });
       }
@@ -59,8 +60,10 @@ function createRegister() {
   };
 
   const destroyAll = () => {
+    console.log(window.location.href, 'before destroy all', register);
     register.forEach(destroyableResource => destroyableResource());
     register.clear();
+    console.log(window.location.href, 'after destroyed', register);
   };
 
   return {
