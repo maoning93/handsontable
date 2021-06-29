@@ -2,7 +2,8 @@
   <div>
     <tabs :options="{ useUrlFragment: false }" @changed="tabClicked">
       <tab v-for="item in items" :name="item.name" :id="item.tabId">
-        <CodeSandboxIframe :id="item.codeSandboxId" :title="item.title" v-if="isSelected(item.tabId)">
+        <CodeSandboxIframe
+          :selectedFile="item.selectedFile" :id="item.codeSandboxId" :title="item.title" v-if="isSelected(item.tabId)">
         </CodeSandboxIframe>
       </tab>
       <tab name="Vue" id="vue" :is-disabled="true"></tab>
@@ -24,25 +25,29 @@ export default {
           name: 'JavaScript',
           tabId: 'js',
           codeSandboxId: 'handsontable-javascript-data-grid-hello-world-app-dzx8f',
-          title: 'Handsontable JavaScript Data Grid - Hello World App'
+          title: 'Handsontable JavaScript Data Grid - Hello World App',
+          selectedFile: '/src/index.js',
         },
         {
           name: 'TypeScript',
           tabId: 'typescript',
           codeSandboxId: 'handsontable-typescript-data-grid-hello-world-app-145es',
-          title: 'Handsontable TypeScript Data Grid - Hello World App'
+          title: 'Handsontable TypeScript Data Grid - Hello World App',
+          selectedFile: '/src/index.ts',
         },
         {
           name: 'React',
           tabId: 'react',
           codeSandboxId: 'handsontable-react-data-grid-hello-world-app-yt46w',
-          title: 'Handsontable React Data Grid - Hello World App'
+          title: 'Handsontable React Data Grid - Hello World App',
+          selectedFile: '/src/index.tsx',
         },
         {
           name: 'Angular',
           tabId: 'angular',
           codeSandboxId: 'handsontable-angular-data-grid-hello-world-app-50pb7',
-          title: 'Handsontable Angular Data Grid - Hello World App'
+          title: 'Handsontable Angular Data Grid - Hello World App',
+          selectedFile: '/src/data-grid/data-grid.component.ts',
         }
       ]
     };
