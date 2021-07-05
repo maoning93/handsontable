@@ -15,7 +15,7 @@ trigger:
 pr: none
 
 pool:
-  name: TW Pool
+  vmImage: 'windows-latest'
 
 stages:
 - stage: HandsonTableBuild
