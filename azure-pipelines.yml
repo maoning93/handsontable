@@ -26,11 +26,14 @@ stages:
         $ErrorView = 'NormalView'
         npm ci
         npm run build
+      displayName: Build
     - pwsh: |
         npm test
+      displayName: Test
     - task: Npm@1
       inputs:
         command: 'publish'
         workingDir: '.'
         publishRegistry: 'useFeed'
         publishFeed: 'e84149e9-8de5-4b69-a182-b1b2a38fcd9b/9fcd9650-c079-4d97-8e7f-b624e011e873'
+      displayName: Publish
