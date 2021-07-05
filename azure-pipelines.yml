@@ -20,25 +20,20 @@ pool:
 stages:
 - stage: HandsonTableBuild
   jobs:
-  - job: Build
+  - job: HandsonTable.Build
     steps:
     - pwsh: |
         $ErrorView = 'NormalView'
         npm ci
         npm run build
-
-- stage: HandsonTableTest
-  jobs:
   - job: HandsonTableTest
     displayName: HandsonTable.Test
     steps:
     - pwsh: |
         $ErrorView = 'NormalView'
         npm test
-
-- stage: Publish
-  jobs:
   - job: Publish
+    displayName: HandsonTable.Publish
     steps:
     - task: Npm@1
       inputs:
