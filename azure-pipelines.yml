@@ -27,9 +27,9 @@ stages:
         npm ci
         npm run build
       displayName: Build
-    - pwsh: |
-        npm test
-      displayName: Test
+    # - pwsh: |
+    #     npm test
+    #   displayName: Test
     - task: Npm@1
       inputs:
         command: 'publish'
