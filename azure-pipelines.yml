@@ -1,29 +1,48 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+#
+# See https://docs.microsoft.com/en-us/vsts/pipelines/yaml-schema for details on this file.
+#
 
+name: $(SourceBranchName).$(Date:yyyyMMdd)$(Rev:.r)
+
+# Configure which branches trigger builds
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - master
+    - 202*
+    - ci
+pr: none
 
 pool:
-  vmImage: windows-latest
+  name: TW Pool
 
 stages:
-- stage: Build
+- stage: HandsonTableBuild
   jobs:
-    - job: HandsonBuild
-    displayName: HandsonBuild
+  - job: Build
+    steps:
     - pwsh: |
         $ErrorView = 'NormalView'
         npm ci
         npm run build
-      displayName: HandsonBuild
-- stage: Test
+
+- stage: HandsonTableTest
   jobs:
-    - job: HandsonTest
-    displayName: HandsonTest
+  - job: HandsonTableTest
+    displayName: HandsonTable.Test
+    steps:
     - pwsh: |
         $ErrorView = 'NormalView'
         npm test
-      displayName: HandsonTest
+
+- stage: Publish
+  jobs:
+  - job: Publish
+    steps:
+    - task: Npm@1
+      inputs:
+        command: 'publish'
+        workingDir: '.'
+        publishRegistry: 'useFeed'
+        publishFeed: 'e84149e9-8de5-4b69-a182-b1b2a38fcd9b/9fcd9650-c079-4d97-8e7f-b624e011e873'
