@@ -26,15 +26,8 @@ stages:
         $ErrorView = 'NormalView'
         npm ci
         npm run build
-  - job: HandsonTableTest
-    displayName: HandsonTable.Test
-    steps:
     - pwsh: |
-        $ErrorView = 'NormalView'
         npm test
-  - job: Publish
-    displayName: HandsonTable.Publish
-    steps:
     - task: Npm@1
       inputs:
         command: 'publish'
