@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: windows-latest
+
+stages:
+- stage: Build
+  jobs:
+    - job: HandsonBuild
+    displayName: HandsonBuild
+    - pwsh: |
+        $ErrorView = 'NormalView'
+        npm ci
+        npm run build
+      displayName: HandsonBuild
+- stage: Test
+  jobs:
+    - job: HandsonTest
+    displayName: HandsonTest
+    - pwsh: |
+        $ErrorView = 'NormalView'
+        npm test
+      displayName: HandsonTest
