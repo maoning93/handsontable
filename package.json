@@ -263,5 +263,13 @@
   "sideEffects": [
     "**/*.css",
     "./languages/*"
+  ],
+  "files": [
+    "src/**",
+    "dist",
+    "base.d.ts",
+    "CHANGELOG.md",
+    "handsontable.d.ts",
+    "package.json"
   ]
 }
