@@ -35,5 +35,5 @@ stages:
         command: 'publish'
         workingDir: '.'
         publishRegistry: 'useFeed'
-        publishFeed: 'e84149e9-8de5-4b69-a182-b1b2a38fcd9b/9fcd9650-c079-4d97-8e7f-b624e011e873'
+        publishFeed: 'e84149e9-8de5-4b69-a182-b1b2a38fcd9b/7c1794ab-ecdb-40bf-bdad-03d4813bf3f8'
       displayName: Publish
