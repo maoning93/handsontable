@@ -16,6 +16,7 @@
   "jsnext:main": "index.mjs",
   "jsdelivr": "dist/handsontable.full.min.js",
   "unpkg": "dist/handsontable.full.min.js",
+  
   "keywords": [
     "data",
     "grid",
