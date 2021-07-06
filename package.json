@@ -73,6 +73,13 @@
     "examples:test": "node examples/scripts/code-examples.mjs test",
     "examples:start": "http-server ./examples/tmp"
   },
+  "workspaces": {
+    "packages": [
+      ".",
+      "wrappers/*",
+      "examples"
+    ]
+  }
   "keywords": [
     "data",
     "grid",
