@@ -79,7 +79,7 @@
       "wrappers/*",
       "examples"
     ]
-  }
+  },
   "keywords": [
     "data",
     "grid",
